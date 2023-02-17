@@ -76,16 +76,16 @@ In this program, weather and geocoding api is used
 const address = process.argv[2]; //get User Input
 
 if (address){
-    geocode(address, (error, data) => {
+    geocode(address, (error, {latitude, longitude, location} = {}) => {
         if (error){
            return console.log('Error ', error);
         } 
     
-        forecast(data.latitude + "," + data.longitude, (error, forecastData) => {
+        forecast(latitude + "," + longitude, (error, forecastData) => {
             if (error) {
                 return console.log('Error', error)
             }
-            console.log(chalk.bgGreen("  " + data.location + "  "))
+            console.log(chalk.bgGreen("  " + location + "  "))
             console.log(forecastData, '\n')
         })
     });    

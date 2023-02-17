@@ -35,20 +35,23 @@ const product = {
     label: 'Red notebook',
     price: 3,
     stock: 201,
-    salePrice: undefined
+    salePrice: undefined,
+    // sale: 0 
 }
 
-// const label = product.label;
-// const stock = product.stock;
-// const price = product.price;
-// const salePrice = product.salePrice;
+// const {label, stock, price:originalPrice, rating, sale = 1 } = product;
 
-const {label, stock, price:originalPrice, rating} = product;
+// console.log(label);
+// console.log(stock);
+// console.log(originalPrice); //price was renamed to originalPrices
+// console.log(rating); //undefined, as this is not present in the objects
+// console.log(sale); //has default value should there be no property 'sale'
+// console.log('\n');
 
-console.log(label);
-console.log(stock);
-console.log(originalPrice); //price was renamed to originalPrices
-console.log(rating); //undefined, as this is not present in the objects
-console.log('\n');
+const transaction = (type, { label, stock }) => { //destructured object as param
+    console.log(type, label, stock);
+};
+
+transaction('order', product);
 
 
